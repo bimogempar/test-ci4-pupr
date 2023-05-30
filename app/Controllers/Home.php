@@ -13,7 +13,12 @@ class Home extends BaseController
             $cars = $carModel->getCarJoinCategory();
             return view('home', ['cars' => $cars]);
         } catch (\Throwable $th) {
-            //throw $th;
+            throw $th;
         }
+    }
+
+    public function detailCar($car_id)
+    {
+        return view('detail_car');
     }
 }
