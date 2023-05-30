@@ -6,19 +6,30 @@ use App\Models\Car;
 
 class Home extends BaseController
 {
+    protected $carModel;
+
+    public function __construct()
+    {
+        $this->carModel = new Car();
+    }
+
     public function index()
     {
-        $carModel = new Car();
         try {
-            $cars = $carModel->getCarJoinCategory();
+            $cars = $this->carModel->getCarJoinCategory();
             return view('home', ['cars' => $cars]);
-        } catch (\Throwable $th) {
-            throw $th;
+        } catch (\Exception $err) {
+            throw $err->getMessage();
         }
     }
 
     public function detailCar($car_id)
     {
-        return view('detail_car');
+        try {
+            $car = $this->carModel->findCarJoinCategory($car_id);
+            return view('detail_car', ['car' => $car]);
+        } catch (\Exception $err) {
+            throw $err->getMessage();
+        }
     }
 }

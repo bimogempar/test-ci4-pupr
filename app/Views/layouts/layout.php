@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="grid sm:grid-cols-5 grid-cols-1">
+    <div class="grid lg:grid-cols-5 grid-cols-1">
         <?= $this->include('layouts/sidebar'); ?>
         <div class="p-8 border-2 sm:col-span-4 col-span-1">
             <?= $this->renderSection('main'); ?>

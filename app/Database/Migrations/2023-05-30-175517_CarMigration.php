@@ -26,6 +26,9 @@ class CarMigration extends Migration
                 'type'       => 'INT',
                 'constraint' => '4',
             ],
+            'image_url' => [
+                'type'       => 'VARCHAR',
+            ],
             'description' => [
                 'type' => 'TEXT',
                 'null' => true,
