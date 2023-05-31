@@ -16,4 +16,6 @@
     </div>
 </body>
 
+<script type="text/javascript" src="<?php base_url() ?>js/index.js"></script>
+
 </html>

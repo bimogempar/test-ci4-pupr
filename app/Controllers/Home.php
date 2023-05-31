@@ -45,13 +45,18 @@ class Home extends BaseController
     public function saveCar()
     {
         // dd($this->request->getVar());
+        // input image
+        $imageCar = $this->request->getFile('car_image');
+        $pathName = $imageCar->getRandomName();
+        $imageCar->move('car_image', $pathName);
+
         try {
             $reqBody = $this->request->getVar();
             $this->carModel->save([
                 'car_name' => $reqBody['car_name'],
                 'price' => $reqBody['price'],
                 'year' => $reqBody['year'],
-                'image_url' => 'https://www.toyota.astra.co.id/sites/default/files/2022-01/02%20attitude%20black%20mica%20%28all%20type%29.png',
+                'image_url' => $pathName,
                 'description' => $reqBody['description'],
                 'category_id' => $reqBody['category_id'],
             ]);

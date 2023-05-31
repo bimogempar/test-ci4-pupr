@@ -28,6 +28,7 @@ class CarMigration extends Migration
             ],
             'image_url' => [
                 'type'       => 'VARCHAR',
+                'null' => true,
             ],
             'description' => [
                 'type' => 'TEXT',
