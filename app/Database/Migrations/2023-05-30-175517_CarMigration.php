@@ -45,6 +45,10 @@ class CarMigration extends Migration
                 'type'    => 'TIMESTAMP',
                 'null' => true,
             ],
+            'deleted_at' => [
+                'type'    => 'TIMESTAMP',
+                'null' => true,
+            ],
         ]);
         $this->forge->addForeignKey('category_id', 'categories', 'category_id');
         $this->forge->addKey('car_id', true);

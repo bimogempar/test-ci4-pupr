@@ -30,9 +30,9 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/cars/(:any)', 'Home::detailCar/$1');
-
-$routes->get('/get-car', 'CarController::getCar');
+$routes->get('/cars/(:num)', 'Home::detailCar/$1');
+$routes->get('/create-car', 'Home::createCar');
+$routes->post('/create-car', 'Home::saveCar');
 
 /*
  * --------------------------------------------------------------------

@@ -27,6 +27,10 @@ class CategoryMigration extends Migration
                 'type'    => 'TIMESTAMP',
                 'null' => true,
             ],
+            'deleted_at' => [
+                'type'    => 'TIMESTAMP',
+                'null' => true,
+            ],
         ]);
         $this->forge->addKey('category_id', true);
         $this->forge->createTable('categories');

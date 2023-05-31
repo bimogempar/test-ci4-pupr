@@ -17,5 +17,15 @@
                                                                                                 }
                                                                                                 ?>">Products</div>
         </a>
+        <a href="/create-car">
+            <div class="p-2 hover:bg-sky-200 hover:text-indigo-900 rounded-lg cursor-pointer <?php
+                                                                                                $uri = new \CodeIgniter\HTTP\URI(current_url());
+                                                                                                if ($uri->getSegment(2) == 'create-car') {
+                                                                                                    echo 'bg-sky-200 text-indigo-900';
+                                                                                                }
+                                                                                                ?>">
+                Create Car
+            </div>
+        </a>
     </div>
 </div>
