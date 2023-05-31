@@ -11,3 +11,17 @@ function previewImage(params) {
         imgPreview.src = e.target.result
     }
 }
+
+function deleteCar(params) {
+    if (confirm('delete ?')) {
+        $.ajax({
+            type: "GET",
+            url: window.location + 'delete-car/' + params,
+            success: function (response) {
+                console.log('success delete')
+            }
+        });
+    } else {
+        console.log('cancel', params)
+    }
+}

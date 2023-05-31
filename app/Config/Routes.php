@@ -33,6 +33,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/cars/(:num)', 'Home::detailCar/$1');
 $routes->get('/create-car', 'Home::createCar');
 $routes->post('/create-car', 'Home::saveCar');
+$routes->get('/delete-car/(:num)', 'Home::deleteCar/$1');
 
 /*
  * --------------------------------------------------------------------

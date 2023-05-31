@@ -65,4 +65,14 @@ class Home extends BaseController
             return $err->getMessage();
         }
     }
+
+    public function deleteCar($car_id)
+    {
+        $car = $this->carModel->find($car_id);
+        if ($car['image_url'] != null) {
+            unlink('car_image/' . $car['image_url']);
+        }
+        $this->carModel->delete($car_id);
+        return redirect()->to('/');
+    }
 }

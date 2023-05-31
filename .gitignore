@@ -2,6 +2,9 @@
 # Operating Specific Junk Files
 #-------------------------
 
+# storage file image
+.public/car_image/
+
 # OS X
 .DS_Store
 .AppleDouble
