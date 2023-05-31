@@ -16,10 +16,10 @@ function deleteCar(params) {
     if (confirm('delete ?')) {
         $.ajax({
             type: "DELETE",
-            url: window.location + 'delete-car/' + params,
+            url: '/delete-car/' + params,
             success: function (response) {
                 console.log('success delete')
-                location.reload()
+                location.reload('/')
             }
         });
     } else {

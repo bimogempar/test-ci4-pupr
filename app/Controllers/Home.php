@@ -75,4 +75,32 @@ class Home extends BaseController
         $this->carModel->delete($car_id);
         return redirect()->to('/');
     }
+
+    public function editCar($car_id)
+    {
+        $car = $this->carModel->find($car_id);
+        $categories = $this->categoryModel->findAll();
+        return view('edit_car', [
+            'car' => $car,
+            'categories' => $categories
+        ]);
+    }
+
+    public function updateCar($car_id)
+    {
+        $reqBody = $this->request->getVar();
+        $imageCar = $this->request->getFile('car_image');
+        $pathName = $imageCar->getRandomName();
+        $imageCar->move('car_image', $pathName);
+
+        $car = $this->carModel->update($car_id, [
+            "car_name" => $reqBody['car_name'],
+            "price" => $reqBody['price'],
+            "year" => $reqBody['year'],
+            "description" => $reqBody['description'],
+            "category_id" => $reqBody['category_id'],
+            "image_url" => $pathName
+        ]);
+        return redirect()->to('/');
+    }
 }
