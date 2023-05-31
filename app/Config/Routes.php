@@ -42,6 +42,9 @@ $routes->delete('/delete-car/(:num)', 'Home::deleteCar/$1');
 $routes->group('api', function ($routes) {
     $routes->post('login', 'AuthController::loginUser');
     $routes->get('cars', 'CarController::getAllCar', ['filter' => 'authFilter']);
+    $routes->post('create-car', 'CarController::saveCar', ['filter' => 'authFilter']);
+    $routes->post('update-car/(:num)', 'CarController::updateCar/$1', ['filter' => 'authFilter']);
+    $routes->delete('delete-car/(:num)', 'CarController::deleteCar/$1', ['filter' => 'authFilter']);
 });
 
 /*
