@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Controllers\LoginController;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -36,6 +38,11 @@ $routes->post('/create-car', 'Home::saveCar');
 $routes->get('/edit-car/(:num)', 'Home::editCar/$1');
 $routes->post('/edit-car/(:num)', 'Home::updateCar/$1');
 $routes->delete('/delete-car/(:num)', 'Home::deleteCar/$1');
+
+$routes->group('api', function ($routes) {
+    $routes->post('login', 'AuthController::loginUser');
+    $routes->get('cars', 'CarController::getAllCar', ['filter' => 'authFilter']);
+});
 
 /*
  * --------------------------------------------------------------------
